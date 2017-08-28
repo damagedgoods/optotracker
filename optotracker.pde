@@ -1,4 +1,7 @@
 import java.awt.*;
+import processing.sound.*;
+
+SoundFile[] samples = new SoundFile[4];
 PImage photo;
 
 int puntero = 0;
@@ -8,9 +11,14 @@ int threshold = 150;
 void setup() {
   size(801,401); 
   frameRate(60);  
-  photo = loadImage("grid.png");
-  
+  photo = loadImage("grid.png");  
   photo.loadPixels();
+  
+  samples[0] = new SoundFile(this, "CLAP1.aif");
+  samples[1] = new SoundFile(this, "CONGA1.aif");
+  samples[2] = new SoundFile(this, "HIHAT01.aif");
+  samples[3] = new SoundFile(this, "STICK.aif");
+  //file.play();
 }
 
 
@@ -56,4 +64,5 @@ color getCellBrightness(int x, int y) {
 
 void playSample(int x, int y) {
   println(puntero +": playing sample in track "+y);
+  samples[y].play();
 }
