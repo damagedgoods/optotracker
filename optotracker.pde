@@ -22,10 +22,7 @@ void setup() {
   samples[5] = new SoundFile(this, "fingered-bassnote-short.wav");
   samples[6] = new SoundFile(this, "hawaii_guitar.aif");
   samples[7] = new SoundFile(this, "shortwarm.aif");
-
-  //file.play();
 }
-
 
 void draw() {
   
@@ -39,7 +36,6 @@ void draw() {
   if (puntero%cellWidth == 0) {
     // Nueva celda, miro cuál es
     int x = puntero / cellWidth;
-    // println(x);
     for (int i=0; i<8; i++) {
       //println("Columna "+x+", fila "+i+", brillo "+getCellBrightness(x, i));
       boolean nota = (getCellBrightness(x, i) < threshold);
@@ -49,7 +45,6 @@ void draw() {
     }        
   }
   
-  // Actualizo el puntero
   puntero++;
   if (puntero == width-1) puntero = 0;    
   
@@ -68,7 +63,7 @@ color getCellBrightness(int x, int y) {
 }
 
 void playSample(int x, int y) {
-  println(puntero +": playing sample in track "+y);
+  // println(puntero +": playing sample in track "+y);
   stroke(255,0,0);
   strokeWeight(2);
   noFill();
